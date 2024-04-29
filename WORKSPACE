@@ -523,6 +523,7 @@ http_archive(
     patch_cmds = [
         """sed -i.bak 's/"python",/"python3",/g' third_party/py/python_configure.bzl""",
         """sed -i.bak 's/PYTHONHASHSEED=0/PYTHONHASHSEED=0 python3/g' bazel/cython_library.bzl""",
+        """sed -i.bak 's/protobuf>=3.5.0.post1/protobuf==3.5.0.post1/g' requirements.bazel.txt"""
     ],
     sha256 = "b956598d8cbe168b5ee717b5dafa56563eb5201a947856a6688bbeac9cac4e1f",
     strip_prefix = "grpc-b54a5b338637f92bfcf4b0bc05e0f57a5fd8fadd",
@@ -696,7 +697,7 @@ http_archive(
     patches = [
         "//third_party:libaprutil1.patch",
     ],
-    sha256 = "4c9ae319cedc16890fc2776920e7d529672dda9c3a9a9abd53bd80c2071b39af",
+    sha256 = "1e4299da5a3eca49cc3acab60600d0d7c0cda2de46d662ca14fadf5ab68a8c4f",
     strip_prefix = "apr-util-1.6.1",
     urls = [
         "https://storage.googleapis.com/mirror.tensorflow.org/github.com/apache/apr-util/archive/1.6.1.tar.gz",
@@ -871,8 +872,8 @@ http_archive(
 
 http_archive(
     name = "com_grail_bazel_toolchain",
-    sha256 = "9e6065ded4b7453143e1586d6819729a63cd233114b72bf85ff3435367b02c90",
-    strip_prefix = "bazel-toolchain-edd07e96a2ecaa131af9234d6582875d980c0ac7",
+    sha256 = "4b7999c1fa2c3117bb21651e3c155b152e44ae67b2c311214883d4707dbe183f",
+    strip_prefix = "toolchains_llvm-edd07e96a2ecaa131af9234d6582875d980c0ac7",
     urls = [
         "https://storage.googleapis.com/mirror.tensorflow.org/github.com/grailbio/bazel-toolchain/archive/edd07e96a2ecaa131af9234d6582875d980c0ac7.tar.gz",
         "https://github.com/grailbio/bazel-toolchain/archive/edd07e96a2ecaa131af9234d6582875d980c0ac7.tar.gz",
@@ -1067,6 +1068,7 @@ http_archive(
     sha256 = "5fd5831b12b1e0999bd352d6cca11ef80f883c81ffa898e53c68d8fe8d170e9f",
     strip_prefix = "hadoop-3.3.0-src",
     urls = [
+	"https://archive.apache.org/dist/hadoop/core/hadoop-3.3.0/hadoop-3.3.0-src.tar.gz",
         "https://storage.googleapis.com/mirror.tensorflow.org/downloads.apache.org/hadoop/common/hadoop-3.3.0/hadoop-3.3.0-src.tar.gz",
         "https://downloads.apache.org/hadoop/common/hadoop-3.3.0/hadoop-3.3.0-src.tar.gz",
     ],
