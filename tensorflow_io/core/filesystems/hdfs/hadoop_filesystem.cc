@@ -537,7 +537,9 @@ hdfsFS Connect(tf_hdfs_filesystem::HadoopFileSystemImplementation* hadoop_file,
     // configuration files). See:
     // https://github.com/tensorflow/tensorflow/blob/v1.0.0/third_party/hadoop/hdfs.h#L259
     namenode = "default";
-  } else if (scheme == "har") {
+  } else if (scheme == "qbfs") {
+    namenode = path;
+  }else if (scheme == "har") {
     std::string path_har = path;
     SplitArchiveNameAndPath(&path_har, &namenode, status);
     if (TF_GetCode(status) != TF_OK) return nullptr;
